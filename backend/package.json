@@ -32,7 +32,6 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.3",
-    "husky": "^7.0.2",
     "nodemon": "^2.0.12",
     "prettier": "^2.4.1",
     "ts-node": "^10.4.0",
@@ -66,12 +65,6 @@
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
     "lint": "eslint src/**/*.ts ormconfig.ts",
     "lint:fix": "eslint --fix src/**/*.ts ormconfig.ts",
-    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run pretest"
-    }
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   }
 }
