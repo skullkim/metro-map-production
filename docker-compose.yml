@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  subway_db:
+    image: mysql
+    restart: always
+    cap_add:
+      - SYS_NICE
+    volumes:
+      - "./setup.sql:/docker-entrypoint-inidb.d/setup.sql"
+      - "./:/docker-entrypoint-initdb.d/"
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST} 
+      MYSQL_USER: ${MYSQL_USER} 
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABSE} 
+      TZ: Asia/Seoul
+
+  client:
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLIGN=true
+    build:
+      dockerfile: Dockerfile
+      context: ${CLIENT_PATH}
+    volumes:
+      - /app/node_modules
+      - ${CLIENT_PATH}:/app
+
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ${API_PATH}
+    depends_on:
+      - ${DB_NAME}
+    volumes:
+      - /app/node_modules
+      - ${API_PATH}:/app
+    environment:
+      MYSQL_HOST_IP: ${subway_db}
+
+  nginx:
+    depends_on:
+      - client
+      - api
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
+
+
