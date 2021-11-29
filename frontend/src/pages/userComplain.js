@@ -32,7 +32,6 @@ const ComplainContextLength = styled.p`
 const UserComplain = () => {
   const [complainContextLen, setComplainContextLen] = useState(0);
   const [currentFocused, setCurrentFocused] = useState('');
-  const [complainContextError, setComplainContextError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [failMessage, setFailMessage] = useState('');
 
@@ -54,13 +53,10 @@ const UserComplain = () => {
 
       complainContext: yup.string()
         .required(`${WarningMessage.EmptyComplainContext}`)
-        .min(minLen, {message: `${WarningMessage.ComplainContextIsTooShort}`})
-        .max(maxComplainContextLen, {message: `${WarningMessage.ComplainContextIsTooLong}`})
+        .min(minLen, `${WarningMessage.ComplainContextIsTooShort}`)
+        .max(maxComplainContextLen, `${WarningMessage.ComplainContextIsTooLong}`)
     }),
     onSubmit: ({email, subwayLine, complainContext: userComplainContext}) => {
-      if(userComplainContext.length <= 10) {
-        setComplainContextError(WarningMessage.ComplainContextIsTooShort);
-      }
       Api({
         method: 'POST',
         url: `${process.env.REACT_APP_SERVER_ORIGIN}${ServerPath.SendUserComplain}`,
@@ -116,8 +112,8 @@ const UserComplain = () => {
           placeholder='이메일을 입력해 주세요'
         />
         {formik.touched.email &&
-          formik.errors.email &&
-          currentFocused === UserComplainName.Email ?
+        formik.errors.email &&
+        currentFocused === UserComplainName.Email ?
           <Warning>{formik.errors.email}</Warning> :
           null
         }
@@ -138,9 +134,9 @@ const UserComplain = () => {
           <option value='9'>9호선</option>
         </SelectSubwayLine>
         {formik.touched.subwayLine &&
-          formik.errors.subwayLine &&
-          !formik.values.subwayLine &&
-          currentFocused === UserComplainName.SubwayLine ?
+        formik.errors.subwayLine &&
+        !formik.values.subwayLine &&
+        currentFocused === UserComplainName.SubwayLine ?
           <Warning>{formik.errors.subwayLine}</Warning> :
           null
         }
@@ -152,9 +148,9 @@ const UserComplain = () => {
         />
         <ComplainContextLength>{complainContextLen}/300</ComplainContextLength>
         {formik.touched.complainContext &&
-          formik.errors.subwayLine &&
-          currentFocused === UserComplainName.ComplainContext ?
-          <Warning>{complainContextError}</Warning> :
+        formik.errors.complainContext &&
+        currentFocused === UserComplainName.ComplainContext ?
+          <Warning>{formik.errors.complainContext}</Warning> :
           null
         }
         <SubmitButton

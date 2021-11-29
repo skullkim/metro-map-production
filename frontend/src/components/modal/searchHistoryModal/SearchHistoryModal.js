@@ -32,9 +32,8 @@ const CloseButton = styled.section`
 const SearchHistoryModal = () => {
   const [searchHistory, setSearchHistory] = useState([]);
   const [updateBookMark, setUpdateBookMark] = useState(false);
-  const userInfo = getUserInfo();
+  const [userInfo] = useState(getUserInfo());
   const {SearchTargetStore, ModalOpenStore} = indexStore();
-
   useEffect(() => {
     if(!userInfo) {
       ModalOpenStore.setSearchHistoryModal(false);

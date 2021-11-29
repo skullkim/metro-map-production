@@ -95,8 +95,8 @@ const subwayData = {
     { id: '210', name: '210', x: 380, y: 40, labelPosition: 'top' },
     { id: '211', name: '211', x: 510, y: 40, labelPosition: 'top' },
     { id: '212', name: '212', x: 620, y: 40, labelPosition: 'top' },
-    { id: '213', name: '213', x: 725, y: 40, labelPosition: 'top' },
-    { id: '214', name: '214', x: 670, y: 40, labelPosition: 'top' },
+    { id: '213', name: '213', x: 670, y: 40, labelPosition: 'top' },
+    { id: '214', name: '214', x: 725, y: 40, labelPosition: 'top' },
     { id: '215', name: '215', x: 775, y: 40, labelPosition: 'top' },
     { id: '216', name: '216', x: 820, y: 40, labelPosition: 'top' },
     { id: '217', name: '217', x: 880, y: 40, labelPosition: 'top' },
@@ -463,7 +463,7 @@ const subwayData = {
     { color: '#e74d6d', type: 'STRAIGHT', source: '805', target: '806' },
     { color: '#e74d6d', type: 'STRAIGHT', source: '806', target: '705' },
     { color: '#e74d6d', type: 'STRAIGHT', source: '705', target: '618' },
-    { color: '#e74d6d', type: 'STRAIGHT', source: '618', target: '214' },
+    { color: '#e74d6d', type: 'STRAIGHT', source: '618', target: '213' },
 
     { color: '#e74d6d', type: 'STRAIGHT', source: '801', target: '113' },
     { color: '#e74d6d', type: 'STRAIGHT', source: '802', target: '801' },
@@ -475,7 +475,7 @@ const subwayData = {
     { color: '#e74d6d', type: 'STRAIGHT', source: '806', target: '805' },
     { color: '#e74d6d', type: 'STRAIGHT', source: '705', target: '806' },
     { color: '#e74d6d', type: 'STRAIGHT', source: '618', target: '705' },
-    { color: '#e74d6d', type: 'STRAIGHT', source: '214', target: '618' },
+    { color: '#e74d6d', type: 'STRAIGHT', source: '213', target: '618' },
 
 
     // 9호선

@@ -4,7 +4,6 @@ import { NavLink, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ClientPath, ImagePath } from "../../lib/dataPath";
-import { getUserInfo } from '../../lib/localStorage';
 import indexStore from '../../stores/indexStore';
 import SearchHistoryModal from '../modal/searchHistoryModal/SearchHistoryModal';
 import SearchResultModal from '../modal/searchResultModal/SearchResultModal';
@@ -78,13 +77,9 @@ const OpenSearchHistory = styled.button`
 const HeaderNav = () => {
   const history = useHistory();
   const {Login, ModalOpenStore: openModal} = indexStore();
-  const userInfo = getUserInfo();
 
   const handleClick = useCallback((event) => {
     event.preventDefault();
-    if(!userInfo) {
-      return history.push(ClientPath.SignIn);
-    }
     openModal.setSearchHistoryModal(true);
   }, []);
 
@@ -113,7 +108,7 @@ const HeaderNav = () => {
             <NavItem to={ClientPath.SignIn}>로그인</NavItem>
           </> :
           <>
-            <NavItem to={ClientPath.MyPage + userInfo.userId}>마이페이지</NavItem>
+            <NavItem to={ClientPath.MyPage + Login.userId}>마이페이지</NavItem>
             <Logout />
           </>
         }
