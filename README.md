@@ -16,7 +16,7 @@ install modules and create .env file and set it first.
 Backend: Express, Typescript, JWT  
 Frontend: React, Javascript  
 Database: mysql, typeorm(ORM)  
-Infra: Docker, Nginx
+Infra: Docker, Nginx, HTTPS
 - - -
 ## Project Directory structure
 metro-map-production/  
@@ -36,6 +36,9 @@ metro-map-production/
 [frontend](https://github.com/skullkim/metro-map-front)  
 [backend](https://github.com/skullkim/metro-map-backend)  
 [document](https://github.com/skullkim/metro-map-docu)
+- - -
+## Demonstration video
+[![teamproject1 video](./document/videoThumbnail.png)](https://www.youtube.com/watch?v=8nzuOlig7pc)
 - - -
 ## License
 This project is licensed under the terms of the MIT license.
