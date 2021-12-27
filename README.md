@@ -40,6 +40,9 @@ metro-map-production/
 ## Demonstration video
 [![teamproject1 video](./document/videoThumbnail.png)](https://www.youtube.com/watch?v=8nzuOlig7pc)
 - - -
+## Project Review
+[project review](https://iskull-dev.tistory.com/215)
+- - -
 ## License
 This project is licensed under the terms of the MIT license.
 
